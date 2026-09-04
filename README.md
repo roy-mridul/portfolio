@@ -48,7 +48,7 @@ This project is connected through Cloudflare's unified Workers/Pages flow, which
 - Package manager: pnpm — Cloudflare auto-detects it from `pnpm-lock.yaml`.
 - Build command: `pnpm run build`
 - Deploy command: `npx wrangler deploy` (this is what the Cloudflare project's "deploy command" setting should be — it's the default it picked when the repo was connected)
-- `wrangler.jsonc` points `assets.directory` at `./dist` and sets `not_found_handling: single-page-application` — the Workers-native equivalent of `public/_redirects`, which handles SPA history-mode routing when serving through classic Pages instead.
+- `wrangler.jsonc` points `assets.directory` at `./dist` and sets `not_found_handling: single-page-application`, which handles SPA history-mode routing. There is deliberately no `public/_redirects` file — that's the classic-Pages fallback mechanism, and Cloudflare's Workers-assets engine rejects it alongside `not_found_handling` as a conflicting/looping rule.
 - `wrangler` is a committed devDependency (not installed ad-hoc at deploy time) specifically so Cloudflare's build doesn't try to auto-scaffold `wrangler.jsonc` and fetch `wrangler`/`workerd`/`esbuild` on the fly during the deploy step — that ad-hoc install fails non-interactively because pnpm's supply-chain policy blocks their postinstall scripts by default. `pnpm-workspace.yaml`'s `allowBuilds` explicitly allows `esbuild` and `workerd` to run theirs.
 - Node version: 22 (see `.node-version` / `engines.node` in `package.json`) — Vite 8 requires Node ^20.19 or >=22.12; if the build image picks an older default, set `NODE_VERSION` explicitly in the project's environment variables.
 - `public/robots.txt` and `public/sitemap.xml` assume the production URL `https://mridulroy.dev`.
