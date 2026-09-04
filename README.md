@@ -1,6 +1,6 @@
 # mridulroy.dev
 
-Personal engineering site for Mridul Roy — a static SPA built with Vue 3, TypeScript and Vite, deployed to Cloudflare Pages.
+Personal engineering site for Mridul Roy — a static SPA built with Vue 3, TypeScript and Vite, deployed to Cloudflare (Workers static assets).
 
 ## Stack
 
@@ -41,14 +41,19 @@ pnpm build      # type-check (vue-tsc) + production build to dist/
 pnpm preview    # preview the production build locally
 ```
 
-## Deployment (Cloudflare Pages)
+## Deployment (Cloudflare)
 
-- Package manager: pnpm — Cloudflare Pages auto-detects it from `pnpm-lock.yaml`.
-- Build command: `pnpm build`
-- Output directory: `dist`
-- Node version: 22 (see `.node-version` / `engines.node` in `package.json`) — Vite 8 requires Node ^20.19 or >=22.12; Cloudflare Pages' default build image is older, so this must be picked up or set explicitly via the `NODE_VERSION` env var in the Pages project settings.
-- `public/_redirects` (`/* /index.html 200`) handles SPA history-mode routing.
+This project is connected through Cloudflare's unified Workers/Pages flow, which deploys it as a **Worker serving static assets** rather than classic Pages — so the build produces `dist/`, then `wrangler deploy` uploads it per `wrangler.jsonc`.
+
+- Package manager: pnpm — Cloudflare auto-detects it from `pnpm-lock.yaml`.
+- Build command: `pnpm run build`
+- Deploy command: `npx wrangler deploy` (this is what the Cloudflare project's "deploy command" setting should be — it's the default it picked when the repo was connected)
+- `wrangler.jsonc` points `assets.directory` at `./dist` and sets `not_found_handling: single-page-application` — the Workers-native equivalent of `public/_redirects`, which handles SPA history-mode routing when serving through classic Pages instead.
+- `wrangler` is a committed devDependency (not installed ad-hoc at deploy time) specifically so Cloudflare's build doesn't try to auto-scaffold `wrangler.jsonc` and fetch `wrangler`/`workerd`/`esbuild` on the fly during the deploy step — that ad-hoc install fails non-interactively because pnpm's supply-chain policy blocks their postinstall scripts by default. `pnpm-workspace.yaml`'s `allowBuilds` explicitly allows `esbuild` and `workerd` to run theirs.
+- Node version: 22 (see `.node-version` / `engines.node` in `package.json`) — Vite 8 requires Node ^20.19 or >=22.12; if the build image picks an older default, set `NODE_VERSION` explicitly in the project's environment variables.
 - `public/robots.txt` and `public/sitemap.xml` assume the production URL `https://mridulroy.dev`.
+
+To sanity-check the deploy config locally without touching production: `npx wrangler deploy --dry-run` (reads `dist/`, validates `wrangler.jsonc`, uploads nothing).
 
 ## Known TODOs
 

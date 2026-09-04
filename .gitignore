@@ -128,6 +128,10 @@ dist
 # pnpm
 .pnpm-store
 
+# Wrangler / Cloudflare Workers local state
+.wrangler
+.dev.vars*
+
 # yarn v3
 .pnp.*
 .yarn/*
