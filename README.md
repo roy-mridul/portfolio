@@ -60,5 +60,6 @@ To sanity-check the deploy config locally without touching production: `npx wran
 Content that was deliberately left as a placeholder rather than invented — see `src/content/*.ts` for the exact locations:
 
 - **`src/content/profile.ts`** — `social.email` (currently `undefined`, so that link doesn't render).
-- **`src/content/projects.ts`** — one real entry (the academic thesis case study); the `production` and `prototype`/`research` groups on `/work` are intentionally empty for now — see `WorkView.vue` for how that's presented (in development, not missing).
+- **`src/content/projects.ts`** — two real entries (App & Service Manager service ownership, and the academic thesis); a production case study for the *current* Software Engineer role needs a concrete system/problem to write about before it can be added honestly. The `prototype`/`research` groups on `/work` are intentionally empty and point to `/experiments` instead — see `WorkView.vue`.
+- **"Zeus"** — mentioned as relevant to the offline-first research but not described concretely enough (what it is, public/private, the actual problem) to add without either fabricating detail or duplicating the existing offline-first experiment entry. Needs a real description before it can go anywhere on the site.
 - **`index.html`** — `og:image` is commented out; add a 1200×630 social preview image at `public/og.png` and uncomment the tag.

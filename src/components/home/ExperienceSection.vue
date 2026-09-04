@@ -12,8 +12,8 @@ import RevealOnScroll from '@/components/common/RevealOnScroll.vue'
           index="04"
           heading-id="experience-heading"
           eyebrow="Experience"
-          title="Nine years, mostly one company, three roles."
-          lead="Junior web developer, then service manager, then software engineer at dpa — plus two earlier roles in web development and quantitative consulting before that."
+          title="Built it, operated it, then built again."
+          lead="Nine years, mostly at dpa — junior web developer, then App & Service Manager, then frontend-focused software engineer. The progression is the point: the year spent owning a service end to end shows up in how I build software now, not just on the timeline."
         />
       </RevealOnScroll>
 

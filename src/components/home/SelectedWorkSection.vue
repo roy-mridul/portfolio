@@ -30,9 +30,7 @@ const featured = computed(() => projects.filter((p) => p.featured).slice(0, 4))
             :index="String(i + 1).padStart(2, '0')"
           />
         </div>
-        <p class="work-section__note mono">
-          Production case studies from professional engineering work are in development.
-        </p>
+        <p class="work-section__note mono">More case studies will be added as they're written up.</p>
       </RevealOnScroll>
 
       <RevealOnScroll v-else :delay="80">

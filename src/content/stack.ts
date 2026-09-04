@@ -4,8 +4,11 @@ import type { TechTag } from './types'
 export const stack: Record<string, TechTag[]> = {
   Frontend: [
     { label: 'TypeScript', category: 'frontend' },
+    { label: 'JavaScript', category: 'frontend' },
     { label: 'Vue', category: 'frontend' },
     { label: 'React', category: 'frontend' },
+    { label: 'HTML', category: 'frontend' },
+    { label: 'CSS', category: 'frontend' },
   ],
   Backend: [
     { label: 'Java', category: 'backend' },
