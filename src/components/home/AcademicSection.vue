@@ -15,7 +15,7 @@ const academic = profile.academic
           heading-id="academic-heading"
           eyebrow="Computational background"
           title="Before software, it was mathematical modelling."
-          lead="A M.Sc. in Computer Simulation in Science, specializing in financial mathematics — the origin of the habit of modelling a problem before touching a solution."
+          lead="An M.Sc. in Computer Simulation in Science, specializing in financial mathematics — completed before the move into software engineering."
         />
       </RevealOnScroll>
 

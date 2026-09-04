@@ -51,15 +51,9 @@ export const projects: Project[] = [
     problem:
       'A gas storage facility is not just inventory — it behaves like a portfolio of embedded options: when to inject gas, when to withdraw it, and when to leave it alone, all under uncertain future prices and hard physical limits on injection rate, withdrawal rate and capacity.',
     approach:
-      'Modelled stochastic gas-price dynamics and applied the Least Squares Monte Carlo method — regression over simulated price paths, in the style of Longstaff–Schwartz — to approximate the storage’s optimal operating policy and value the optionality it represents.',
-    decisions: [
-      'Used regression-based continuation-value estimation (Longstaff–Schwartz) rather than a full finite-difference PDE solve, trading some theoretical precision for tractability on a higher-dimensional, path-dependent problem.',
-      'Modelled the physical storage constraints — injection/withdrawal rates, capacity limits — directly in the simulation rather than treating the facility as a pure financial option.',
-    ],
+      'Modelled stochastic gas-price dynamics and applied the Least Squares Monte Carlo method — a Longstaff–Schwartz-style regression over simulated price paths — alongside the physical operating constraints of the storage facility itself (injection/withdrawal limits, capacity).',
     technologies: ['MATLAB'],
     outcome:
       'Completed as the M.Sc. thesis for Computer Simulation in Science at Bergische Universität Wuppertal.',
-    learned:
-      'Regression-based Monte Carlo methods trade theoretical precision for tractability on high-dimensional, path-dependent problems — and modelling the physical constraints as carefully as the price process itself mattered as much to the result as the choice of numerical method.',
   },
 ]

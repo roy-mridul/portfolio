@@ -17,8 +17,8 @@ export const profile = {
   // Short narrative used across About / meta description. Keep it factual.
   bio: [
     'I’m a software engineer based in Hamburg, with about nine years in the industry — nearly all of it at dpa. I started as a junior web developer, spent a year running service and release management for a publisher-facing product, and have worked as a software engineer, focused on the frontend, since 2021. My day-to-day tools are TypeScript, Vue and React, with enough Java, Spring Boot and SQL to be dangerous on the other side of the API.',
-    'I don’t think of frontend and backend as separate worlds. A component tree, a REST contract, a database schema and a deployment pipeline are all the same system, viewed from different altitudes. I like moving between those altitudes — understanding why a UI decision constrains an API, or why a schema shapes what a form can do.',
-    'Before any of that, I trained as a computational scientist — modelling stochastic systems and numerical methods rather than writing production code. That background shows up less in the tools I use than in the habit it left behind: model the problem before you touch the solution.',
+    'I don’t treat frontend and backend as separate concerns. Building interfaces, integrating with APIs, and understanding the systems and data behind them are part of the same job — that’s been true across every role I’ve had, from writing a feature to being the one who owns what happens when it breaks.',
+    'Before any of that, I trained as a computational scientist — modelling stochastic systems and numerical methods rather than writing production code. It’s a different kind of work than software engineering; the M.Sc. thesis is a concrete example of it.',
     'Outside of client work, I use my own time to ask questions I can’t always answer on the job: how offline-first applications stay consistent, what changes when an AI agent writes the first draft of a frontend, whether a specification can do more work than a ticket. Some of that turns into working prototypes. Some of it stays a note. Both are on this site.',
   ],
 

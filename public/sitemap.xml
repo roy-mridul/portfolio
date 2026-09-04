@@ -11,6 +11,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://mridulroy.dev/work/epaper-apps-service-ownership</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mridulroy.dev/work/least-squares-monte-carlo-gas-storage</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>

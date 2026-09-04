@@ -48,7 +48,7 @@ usePageMeta(() => ({
 
       <RevealOnScroll :delay="140">
         <section class="about-view__stack">
-          <h2 class="mono about-view__label">Stack, by relevance</h2>
+          <h2 class="mono about-view__label">Stack</h2>
           <div class="about-view__stack-grid">
             <div v-for="(techs, group) in stack" :key="group" class="about-view__stack-group">
               <h3 class="about-view__stack-group-title">{{ group }}</h3>
@@ -144,7 +144,7 @@ usePageMeta(() => ({
 .about-view__stack-grid {
   margin-top: var(--space-5);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
 }
 
@@ -171,15 +171,12 @@ usePageMeta(() => ({
     border-top: 1px solid var(--line);
     padding-top: var(--space-6);
   }
-
-  .about-view__stack-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .about-view__stack-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-5);
   }
 }
 </style>
