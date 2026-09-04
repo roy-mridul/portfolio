@@ -1,31 +1,20 @@
 <script setup lang="ts">
 import { profile } from '@/content/profile'
-
-const loop = profile.philosophy.loop
 </script>
 
 <template>
   <section class="hero" aria-label="Introduction">
     <div class="hero__grid" aria-hidden="true"></div>
     <div class="container hero__inner">
-      <p class="eyebrow hero__eyebrow">
-        {{ profile.role }} — {{ profile.roleSecondary }} · {{ profile.yearsExperience }} years
-      </p>
+      <p class="hero__name mono">{{ profile.name }}</p>
+      <p class="eyebrow hero__role">{{ profile.role }}</p>
 
-      <h1 class="hero__title">{{ profile.tagline }}</h1>
+      <h1 class="hero__statement">{{ profile.heroStatement }}</h1>
 
-      <p class="hero__lead">{{ profile.heroLead }}</p>
-      <p class="hero__sub">{{ profile.heroSub }}</p>
-
-      <ol class="hero__loop mono" aria-label="How I approach problems">
-        <li v-for="(step, i) in loop" :key="step">
-          <span>{{ step }}</span>
-          <span v-if="i < loop.length - 1" class="hero__loop-arrow" aria-hidden="true">→</span>
-        </li>
-      </ol>
+      <p class="hero__tags mono">{{ profile.heroTags.join(' · ') }}</p>
 
       <div class="hero__actions">
-        <router-link to="/work" class="btn btn--primary">Selected work</router-link>
+        <router-link to="/work" class="btn btn--primary">Work</router-link>
         <router-link to="/experiments" class="btn btn--ghost">Experiments</router-link>
         <a
           :href="profile.social.github"
@@ -65,51 +54,28 @@ const loop = profile.philosophy.loop
   position: relative;
 }
 
-.hero__eyebrow {
-  margin-bottom: var(--space-5);
-}
-
-.hero__title {
-  font-size: var(--step-5);
-  max-width: 20ch;
-}
-
-.hero__lead {
-  margin-top: var(--space-6);
-  max-width: 42rem;
+.hero__name {
   font-size: var(--step-1);
-  color: var(--ink);
-}
-
-.hero__sub {
-  margin-top: var(--space-3);
-  max-width: 40rem;
-  color: var(--ink-muted);
-}
-
-.hero__loop {
-  margin-top: var(--space-8);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-2);
-  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--ink-faint);
 }
 
-.hero__loop li {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
+.hero__role {
+  margin-top: var(--space-3);
 }
 
-.hero__loop li:first-child span:first-child,
-.hero__loop li:last-child span:first-child {
-  color: var(--signal);
+.hero__statement {
+  margin-top: var(--space-5);
+  font-size: var(--step-5);
+  max-width: 18ch;
 }
 
-.hero__loop-arrow {
-  color: var(--line-strong);
+.hero__tags {
+  margin-top: var(--space-6);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
 }
 
 .hero__actions {

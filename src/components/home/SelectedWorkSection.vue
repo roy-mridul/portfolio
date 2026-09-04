@@ -14,9 +14,10 @@ const featured = computed(() => projects.filter((p) => p.featured).slice(0, 4))
       <RevealOnScroll>
         <SectionHeading
           index="01"
+          heading-id="work-heading"
           eyebrow="Selected work"
-          title="Professional and independent work, written up honestly."
-          lead="Case studies that go past a tech-stack list — the problem, the approach, and the trade-offs behind it."
+          title="Engineering stories, not a tech-stack list."
+          lead="Production, prototype, research and academic work — the problem, the approach, and the trade-offs behind it. Case studies are added as they're written up."
         />
       </RevealOnScroll>
 
@@ -29,20 +30,18 @@ const featured = computed(() => projects.filter((p) => p.featured).slice(0, 4))
             :index="String(i + 1).padStart(2, '0')"
           />
         </div>
+        <p class="work-section__note mono">
+          Production case studies from professional engineering work are in development.
+        </p>
       </RevealOnScroll>
 
       <RevealOnScroll v-else :delay="80">
         <div class="work-section__empty">
-          <p class="mono work-section__empty-tag">// in progress</p>
+          <p class="mono work-section__empty-tag">// in development</p>
           <p>
-            Detailed write-ups aren't published yet — I'd rather leave this empty than pad it with
-            a project description that isn't backed by real detail. In the meantime, the
-            <router-link to="/experiments">experiments log</router-link>
-            and my
-            <a href="https://github.com/roy-mridul" target="_blank" rel="noreferrer noopener"
-              >GitHub</a
-            >
-            are the more current picture of what I'm building.
+            Case studies from professional engineering work are being written up and will land
+            here. The <router-link to="/experiments">experiments log</router-link> is the more
+            current picture of what's active right now.
           </p>
         </div>
       </RevealOnScroll>
@@ -62,6 +61,12 @@ const featured = computed(() => projects.filter((p) => p.featured).slice(0, 4))
 
 .work-section__list {
   margin-top: var(--space-2);
+}
+
+.work-section__note {
+  margin-top: var(--space-6);
+  font-size: var(--step--1);
+  color: var(--ink-faint);
 }
 
 .work-section__empty {

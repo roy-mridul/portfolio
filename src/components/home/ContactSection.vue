@@ -7,11 +7,11 @@ import RevealOnScroll from '@/components/common/RevealOnScroll.vue'
   <section class="contact" aria-labelledby="contact-heading">
     <div class="container">
       <RevealOnScroll>
-        <p class="eyebrow">06 · Contact</p>
+        <p class="eyebrow">07 · Contact</p>
       </RevealOnScroll>
 
       <RevealOnScroll :delay="60">
-        <h2 class="contact__title">
+        <h2 id="contact-heading" class="contact__title">
           If something here is worth talking about, I'd like to hear it.
         </h2>
       </RevealOnScroll>

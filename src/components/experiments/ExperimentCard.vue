@@ -17,10 +17,11 @@ const categoryLabel: Record<Experiment['category'], string> = {
   'developer-experience': 'Developer Experience',
 }
 
-const statusLabel: Record<Experiment['status'], string> = {
-  ongoing: 'Ongoing',
-  concluded: 'Concluded',
-  paused: 'Paused',
+const stageLabel: Record<Experiment['stage'], string> = {
+  'ongoing-research': 'Ongoing Research',
+  experiment: 'Experiment',
+  prototype: 'Prototype',
+  shipped: 'Shipped',
 }
 </script>
 
@@ -34,8 +35,8 @@ const statusLabel: Record<Experiment['status'], string> = {
         </p>
         <h3 class="experiment-card__title">{{ experiment.title }}</h3>
       </div>
-      <span class="mono experiment-card__status" :class="`is-${experiment.status}`">
-        {{ statusLabel[experiment.status] }}
+      <span class="mono experiment-card__status" :class="`is-${experiment.stage}`">
+        {{ stageLabel[experiment.stage] }}
       </span>
     </header>
 
@@ -110,7 +111,7 @@ const statusLabel: Record<Experiment['status'], string> = {
   white-space: nowrap;
 }
 
-.experiment-card__status.is-ongoing {
+.experiment-card__status.is-ongoing-research {
   color: var(--signal);
 }
 

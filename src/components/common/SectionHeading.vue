@@ -4,6 +4,7 @@ defineProps<{
   eyebrow: string
   title: string
   lead?: string
+  headingId?: string
 }>()
 </script>
 
@@ -13,7 +14,7 @@ defineProps<{
       <span v-if="index" class="mono section-heading__index">{{ index }}</span>
       {{ eyebrow }}
     </p>
-    <h2 class="section-heading__title">{{ title }}</h2>
+    <h2 :id="headingId" class="section-heading__title">{{ title }}</h2>
     <p v-if="lead" class="section-heading__lead">{{ lead }}</p>
   </div>
 </template>

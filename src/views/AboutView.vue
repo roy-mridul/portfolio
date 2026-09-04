@@ -9,36 +9,39 @@ import { usePageMeta } from '@/composables/usePageMeta'
 usePageMeta(() => ({
   title: 'About',
   description:
-    'About Mridul Roy — a software engineer who moves between component composition and database consistency, frontend and the systems underneath it.',
+    'About Mridul Roy — a frontend-focused software engineer with a computational-science background, who moves between component composition and database consistency, frontend and the systems underneath it.',
   path: '/about',
 }))
 </script>
 
 <template>
   <div>
-    <PageHeader
-      eyebrow="About"
-      title="Frontend by trade. The rest of the stack by curiosity."
-    />
+    <PageHeader eyebrow="About" title="Frontend by trade. The rest of the stack by curiosity." />
 
     <div class="container about-view">
       <div class="about-view__grid">
         <RevealOnScroll as="div" class="about-view__bio">
+          <p class="about-view__byline mono">{{ profile.fullName }} · {{ profile.location }}</p>
           <p v-for="(paragraph, i) in profile.bio" :key="i">{{ paragraph }}</p>
         </RevealOnScroll>
 
         <RevealOnScroll as="aside" class="about-view__aside" :delay="80">
           <section>
-            <h2 class="mono about-view__label">Education</h2>
-            <p class="about-view__education-degree">{{ profile.education.degree }}</p>
-            <p class="about-view__education-note">{{ profile.education.note }}</p>
-          </section>
-
-          <section class="about-view__loop-section">
-            <h2 class="mono about-view__label">How I work</h2>
-            <ol class="about-view__loop mono">
-              <li v-for="step in profile.philosophy.loop" :key="step">{{ step }}</li>
-            </ol>
+            <h2 class="mono about-view__label">Computational background</h2>
+            <p class="about-view__education-degree">{{ profile.academic.degree }}</p>
+            <p class="about-view__education-sub mono">
+              {{ profile.academic.university }} · {{ profile.academic.period }}
+            </p>
+            <p class="about-view__education-sub mono about-view__education-spec">
+              {{ profile.academic.specialization }}
+            </p>
+            <p class="about-view__education-note">{{ profile.academic.note }}</p>
+            <router-link
+              :to="`/work/${profile.academic.thesis.slug}`"
+              class="about-view__education-link mono"
+            >
+              Read the thesis case study →
+            </router-link>
           </section>
         </RevealOnScroll>
       </div>
@@ -80,6 +83,11 @@ usePageMeta(() => ({
   color: var(--ink-muted);
 }
 
+.about-view__byline {
+  font-size: var(--step--1);
+  color: var(--ink-faint);
+}
+
 .about-view__aside {
   display: grid;
   gap: var(--space-8);
@@ -99,27 +107,32 @@ usePageMeta(() => ({
   font-weight: 500;
 }
 
-.about-view__education-note {
+.about-view__education-sub {
   margin-top: var(--space-2);
   color: var(--ink-muted);
   font-size: var(--step--1);
 }
 
-.about-view__loop {
-  display: grid;
-  gap: var(--space-2);
+.about-view__education-spec {
+  color: var(--signal);
+}
+
+.about-view__education-note {
+  margin-top: var(--space-4);
+  color: var(--ink-muted);
   font-size: var(--step--1);
 }
 
-.about-view__loop li {
-  color: var(--ink-muted);
-  padding-block: var(--space-1);
-  border-bottom: 1px dotted var(--line);
+.about-view__education-link {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-size: var(--step--1);
+  color: var(--signal);
 }
 
-.about-view__loop li:first-child,
-.about-view__loop li:last-child {
-  color: var(--signal);
+.about-view__education-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .about-view__stack {

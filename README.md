@@ -60,5 +60,5 @@ To sanity-check the deploy config locally without touching production: `npx wran
 Content that was deliberately left as a placeholder rather than invented — see `src/content/*.ts` for the exact locations:
 
 - **`src/content/profile.ts`** — `social.email` (currently `undefined`, so that link doesn't render).
-- **`src/content/projects.ts`** — currently empty; add write-ups as they're ready (context, problem, approach, architecture, decisions, outcome, learned).
+- **`src/content/projects.ts`** — one real entry (the academic thesis case study); the `production` and `prototype`/`research` groups on `/work` are intentionally empty for now — see `WorkView.vue` for how that's presented (in development, not missing).
 - **`index.html`** — `og:image` is commented out; add a 1200×630 social preview image at `public/og.png` and uncomment the tag.

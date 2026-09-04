@@ -12,6 +12,13 @@ const statusLabel: Record<Project['status'], string> = {
   shipped: 'Shipped',
   exploratory: 'Exploratory',
 }
+
+const kindLabel: Record<Project['kind'], string> = {
+  production: 'Production',
+  prototype: 'Prototype',
+  research: 'Research',
+  academic: 'Academic',
+}
 </script>
 
 <template>
@@ -21,7 +28,9 @@ const statusLabel: Record<Project['status'], string> = {
     <span class="project-row__body">
       <span class="project-row__title-line">
         <span class="project-row__title">{{ project.title }}</span>
-        <span class="mono project-row__status">{{ statusLabel[project.status] }}</span>
+        <span class="mono project-row__status"
+          >{{ kindLabel[project.kind] }} · {{ statusLabel[project.status] }}</span
+        >
       </span>
       <span class="project-row__tagline">{{ project.tagline }}</span>
       <span class="project-row__tags">

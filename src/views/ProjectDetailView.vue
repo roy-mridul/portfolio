@@ -20,6 +20,13 @@ const visibilityLabel: Record<string, string> = {
   private: 'Private — described without source',
 }
 
+const kindLabel: Record<string, string> = {
+  production: 'Production',
+  prototype: 'Prototype',
+  research: 'Research',
+  academic: 'Academic',
+}
+
 usePageMeta(() => ({
   title: project.value?.title ?? 'Project not found',
   description: project.value?.tagline ?? 'This project could not be found.',
@@ -33,8 +40,8 @@ usePageMeta(() => ({
       <RevealOnScroll>
         <router-link to="/work" class="project-detail__back mono">← All work</router-link>
         <p class="eyebrow">
-          {{ visibilityLabel[project.visibility] }} · {{ statusLabel[project.status] }} ·
-          {{ project.year }}
+          {{ kindLabel[project.kind] }} · {{ visibilityLabel[project.visibility] }} ·
+          {{ statusLabel[project.status] }} · {{ project.year }}
         </p>
         <h1 class="project-detail__title">{{ project.title }}</h1>
         <p class="project-detail__tagline">{{ project.tagline }}</p>

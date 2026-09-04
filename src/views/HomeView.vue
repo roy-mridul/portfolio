@@ -4,6 +4,7 @@ import SelectedWorkSection from '@/components/home/SelectedWorkSection.vue'
 import ExperimentsPreviewSection from '@/components/home/ExperimentsPreviewSection.vue'
 import CurrentlyExploringSection from '@/components/home/CurrentlyExploringSection.vue'
 import ExperienceSection from '@/components/home/ExperienceSection.vue'
+import AcademicSection from '@/components/home/AcademicSection.vue'
 import PhilosophySection from '@/components/home/PhilosophySection.vue'
 import ContactSection from '@/components/home/ContactSection.vue'
 import { usePageMeta } from '@/composables/usePageMeta'
@@ -11,7 +12,7 @@ import { usePageMeta } from '@/composables/usePageMeta'
 usePageMeta(() => ({
   title: 'Mridul Roy',
   description:
-    'Mridul Roy — software engineer building interfaces, systems, and the experiments in between. Frontend-focused work in TypeScript, Vue and React, with backend and systems curiosity.',
+    'Mridul Roy — frontend-focused software engineer building interfaces and investigating the systems behind them. TypeScript, Vue and React work, a computational-science background, and ongoing experiments in agentic coding and offline-first architecture.',
   path: '/',
 }))
 </script>
@@ -23,6 +24,7 @@ usePageMeta(() => ({
     <ExperimentsPreviewSection />
     <CurrentlyExploringSection />
     <ExperienceSection />
+    <AcademicSection />
     <PhilosophySection />
     <ContactSection />
   </div>

@@ -11,6 +11,7 @@ import RevealOnScroll from '@/components/common/RevealOnScroll.vue'
       <RevealOnScroll>
         <SectionHeading
           index="03"
+          heading-id="exploring-heading"
           eyebrow="Currently exploring"
           title="What I'm reading, testing, and arguing with myself about."
           lead="Not a skills list — a map of where I currently sit between experience, interest, active experiment, and open research."

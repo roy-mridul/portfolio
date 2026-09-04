@@ -1,29 +1,39 @@
 export const profile = {
   name: 'Mridul Roy',
+  fullName: 'Mridul Chandra Roy',
   initials: 'MR',
   role: 'Software Engineer',
-  roleSecondary: 'Product Engineer',
-  yearsExperience: 9,
+  location: 'Hamburg, Germany',
   site: 'https://mridulroy.dev',
 
-  tagline: 'Software engineer building interfaces, systems, and the experiments in between.',
+  // Used in <meta> descriptions — can run longer than the terse hero copy.
+  tagline:
+    'Frontend-focused software engineer with a computational-science background, building interfaces and investigating the systems behind them.',
 
-  heroLead:
-    'I build software professionally — mostly at the interface layer — and spend my own time understanding what sits underneath it.',
-
-  heroSub:
-    "Frontend by trade. Curious about the rest of the stack by habit — state, APIs, databases, and the infrastructure holding it together.",
+  // What the hero actually renders — deliberately short. WHO / WHAT / HOW, nothing more.
+  heroStatement: 'I build interfaces and investigate the systems behind them.',
+  heroTags: ['Frontend', 'Systems', 'Experiments'],
 
   // Short narrative used across About / meta description. Keep it factual.
   bio: [
-    'I’m a software engineer with about nine years in the industry, nearly all of it at dpa. I started as a junior web developer, spent a year running service and release management for a publisher-facing product, and have worked as a software engineer, focused on the frontend, since 2021. My day-to-day tools are TypeScript, Vue and React, with enough Java, Spring Boot and SQL to be dangerous on the other side of the API.',
+    'I’m a software engineer based in Hamburg, with about nine years in the industry — nearly all of it at dpa. I started as a junior web developer, spent a year running service and release management for a publisher-facing product, and have worked as a software engineer, focused on the frontend, since 2021. My day-to-day tools are TypeScript, Vue and React, with enough Java, Spring Boot and SQL to be dangerous on the other side of the API.',
     'I don’t think of frontend and backend as separate worlds. A component tree, a REST contract, a database schema and a deployment pipeline are all the same system, viewed from different altitudes. I like moving between those altitudes — understanding why a UI decision constrains an API, or why a schema shapes what a form can do.',
+    'Before any of that, I trained as a computational scientist — modelling stochastic systems and numerical methods rather than writing production code. That background shows up less in the tools I use than in the habit it left behind: model the problem before you touch the solution.',
     'Outside of client work, I use my own time to ask questions I can’t always answer on the job: how offline-first applications stay consistent, what changes when an AI agent writes the first draft of a frontend, whether a specification can do more work than a ticket. Some of that turns into working prototypes. Some of it stays a note. Both are on this site.',
   ],
 
-  education: {
-    degree: "Master's degree, Computer Simulation in Science",
+  academic: {
+    degree: 'M.Sc. Computer Simulation in Science',
+    university: 'Bergische Universität Wuppertal',
+    period: '2012–2014',
+    specialization: 'Financial Mathematics',
     note: 'Contributes to my interest in computational thinking, modelling and experimentation — not a research career. I’ve considered a PhD / industry doctorate alongside professional work, and it remains a possible future direction rather than a current plan.',
+    thesis: {
+      title: 'The Least Squares Monte Carlo Method for the Valuation of Gas Storages',
+      slug: 'least-squares-monte-carlo-gas-storage',
+      summary:
+        'Applied Least Squares Monte Carlo (Longstaff–Schwartz-style) methods to value the embedded optionality of a physical gas storage facility — modelling stochastic gas-price dynamics alongside real injection, withdrawal and capacity constraints, implemented in MATLAB.',
+    },
   },
 
   philosophy: {

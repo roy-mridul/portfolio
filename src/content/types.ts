@@ -27,12 +27,16 @@ export interface ContentLink {
 export type ProjectVisibility = 'public' | 'private'
 export type ProjectStatus = 'active' | 'shipped' | 'exploratory'
 
+/** What kind of case study this is — lets Work group honestly instead of implying every entry is a shipped product. */
+export type ProjectKind = 'production' | 'prototype' | 'research' | 'academic'
+
 export interface Project {
   slug: string
   title: string
   tagline: string
   visibility: ProjectVisibility
   status: ProjectStatus
+  kind: ProjectKind
   year: string
   featured: boolean
   context?: string
@@ -57,13 +61,17 @@ export type ExperimentCategory =
   | 'backend'
   | 'developer-experience'
 
-export type ExperimentStatus = 'ongoing' | 'concluded' | 'paused'
+/**
+ * What this entry actually is, not just whether it's active — keeps a
+ * half-finished investigation from reading like shipped software.
+ */
+export type ExperimentStage = 'ongoing-research' | 'experiment' | 'prototype' | 'shipped'
 
 export interface Experiment {
   slug: string
   title: string
   category: ExperimentCategory
-  status: ExperimentStatus
+  stage: ExperimentStage
   date: string
   question: string
   tried: string

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { experience } from '@/content/experience'
-import { profile } from '@/content/profile'
 import SectionHeading from '@/components/common/SectionHeading.vue'
 import RevealOnScroll from '@/components/common/RevealOnScroll.vue'
 </script>
@@ -11,6 +10,7 @@ import RevealOnScroll from '@/components/common/RevealOnScroll.vue'
       <RevealOnScroll>
         <SectionHeading
           index="04"
+          heading-id="experience-heading"
           eyebrow="Experience"
           title="Nine years, mostly one company, three roles."
           lead="Junior web developer, then service manager, then software engineer at dpa — plus two earlier roles in web development and quantitative consulting before that."
@@ -46,12 +46,6 @@ import RevealOnScroll from '@/components/common/RevealOnScroll.vue'
             </div>
           </li>
         </ol>
-      </RevealOnScroll>
-
-      <RevealOnScroll :delay="140">
-        <p class="experience__education">
-          <span class="mono">Education</span> — {{ profile.education.degree }}
-        </p>
       </RevealOnScroll>
     </div>
   </section>
@@ -161,16 +155,6 @@ import RevealOnScroll from '@/components/common/RevealOnScroll.vue'
   margin-top: var(--space-3);
   font-size: var(--step--1);
   color: var(--signal);
-}
-
-.experience__education {
-  margin-top: var(--space-6);
-  color: var(--ink-muted);
-}
-
-.experience__education .mono {
-  color: var(--ink-faint);
-  margin-right: var(--space-2);
 }
 
 @media (max-width: 640px) {

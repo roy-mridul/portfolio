@@ -7,11 +7,13 @@ import RevealOnScroll from '@/components/common/RevealOnScroll.vue'
   <section class="philosophy" aria-labelledby="philosophy-heading">
     <div class="container philosophy__inner">
       <RevealOnScroll>
-        <p class="eyebrow">05 · Philosophy</p>
+        <p class="eyebrow">06 · Philosophy</p>
       </RevealOnScroll>
 
       <RevealOnScroll :delay="60">
-        <p class="philosophy__statement">{{ profile.philosophy.heading }}</p>
+        <h2 id="philosophy-heading" class="philosophy__statement">
+          {{ profile.philosophy.heading }}
+        </h2>
       </RevealOnScroll>
 
       <RevealOnScroll :delay="120">

@@ -13,6 +13,7 @@ const preview = experiments.slice(0, 2)
       <RevealOnScroll>
         <SectionHeading
           index="02"
+          heading-id="experiments-heading"
           eyebrow="Experiments"
           title="Where the curiosity actually goes."
           lead="Small, deliberately unpolished investigations — a question, what I tried, what happened. Not every experiment ships."
