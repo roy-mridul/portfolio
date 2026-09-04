@@ -163,4 +163,10 @@ usePageMeta(() => ({
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 480px) {
+  .about-view__stack-grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

@@ -59,7 +59,16 @@ onBeforeUnmount(() => {
         </span>
       </button>
     </div>
+  </header>
 
+  <!--
+    Teleported to <body>: `.site-header` uses backdrop-filter, which makes it
+    the containing block for `position: fixed` descendants (per spec, same as
+    filter/transform/will-change). Left inline, this panel's fixed inset would
+    resolve against the ~68px-tall header instead of the viewport and collapse
+    to zero height — invisible, but technically "open".
+  -->
+  <Teleport to="body">
     <Transition name="menu">
       <div v-if="menuOpen" id="mobile-menu" class="mobile-menu">
         <nav aria-label="Mobile">
@@ -74,7 +83,7 @@ onBeforeUnmount(() => {
         </nav>
       </div>
     </Transition>
-  </header>
+  </Teleport>
 </template>
 
 <style scoped>
@@ -154,7 +163,10 @@ onBeforeUnmount(() => {
 
 .menu-toggle {
   display: none;
-  padding: var(--space-2);
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   margin-right: calc(var(--space-2) * -1);
 }
 
@@ -186,6 +198,7 @@ onBeforeUnmount(() => {
 .mobile-menu {
   position: fixed;
   inset: 4.25rem 0 0 0;
+  z-index: 150;
   background: var(--bg);
   border-top: 1px solid var(--line);
   overflow-y: auto;
